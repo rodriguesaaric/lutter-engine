@@ -90,3 +90,32 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--surface-bright);
 }
+
+/* Layout Engine */
+.main-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 350px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.parameters-aside {
+  position: sticky;
+  top: 2rem;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 850px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .parameters-aside {
+    position: relative;
+    top: 0;
+  }
+  
+  .app-container {
+    padding: 1rem !important;
+  }
+}

@@ -139,7 +139,7 @@ function App() {
         <p className="technical-label" style={{ color: 'var(--on-surface-variant)', marginTop: '0.25rem' }}>Kinetic Instrument / .CUBE Generator</p>
       </header>
 
-      <main style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 350px', gap: '2rem', alignItems: 'start' }}>
+      <main className="main-layout">
         
         <section style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           
@@ -191,7 +191,7 @@ function App() {
           </div>
         </section>
 
-        <aside className="glass-panel ghost-border" style={{ padding: '2rem', borderRadius: '0.75rem', position: 'sticky', top: '2rem' }}>
+        <aside className="glass-panel ghost-border parameters-aside" style={{ padding: '2rem', borderRadius: '0.75rem' }}>
           <h2 style={{ fontSize: '1.25rem', color: 'var(--on-surface)', marginBottom: '2rem' }}>Parameters</h2>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
@@ -274,6 +274,7 @@ function InteractivePreview({ rawSrc, processedSrc }) {
               position: 'absolute', 
               inset: 0, 
               width: '100%', 
+              maxWidth: '100%',
               height: '100%', 
               objectFit: 'cover'
             }} 
@@ -289,6 +290,7 @@ function InteractivePreview({ rawSrc, processedSrc }) {
                position: 'absolute', 
                inset: 0, 
                width: '100%', 
+               maxWidth: '100%',
                height: '100%', 
                objectFit: 'cover', 
                clipPath: `inset(0 ${100 - split}% 0 0)`
@@ -392,7 +394,7 @@ function UploadSlot({ label, fileUrl, isActive, onMakeActive, onRemove, onUpload
         )}
         {isFilled ? (
           <>
-            <img src={fileUrl} alt={label} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img src={fileUrl} alt={label} style={{ width: '100%', maxWidth: '100%', height: '100%', objectFit: 'cover' }} />
             <button 
               className="remove-btn"
               onClick={(e) => {
@@ -471,7 +473,7 @@ function ReferenceSlot({ fileUrl, onUpload }) {
       />
       {fileUrl ? (
         <>
-          <img src={fileUrl} alt="Reference" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img src={fileUrl} alt="Reference" style={{ width: '100%', maxWidth: '100%', height: '100%', objectFit: 'cover' }} />
           <div style={{ position: 'absolute', top: '1rem', right: '1rem', pointerEvents: 'none' }}>
             <span className="technical-label" style={{ backgroundColor: 'rgba(0,0,0,0.5)', padding: '4px 8px', borderRadius: '4px', color: 'var(--tertiary)', backdropFilter: 'blur(4px)' }}>TARGET LOADED</span>
           </div>
@@ -550,7 +552,8 @@ function SliderControl({ label, value, min, max, unit, onChange, highlight, defa
           appearance: 'none',
           background: 'transparent',
           cursor: 'pointer',
-          height: '1.5rem'
+          height: '48px',
+          margin: '-12px 0'
         }}
       />
       <style>{`
@@ -561,19 +564,19 @@ function SliderControl({ label, value, min, max, unit, onChange, highlight, defa
         }
         input[type=range]::-webkit-slider-runnable-track {
           width: 100%;
-          height: 2px;
+          height: 4px;
           background: var(--surface-container-highest);
           border: none;
-          border-radius: 0;
+          border-radius: 2px;
         }
         input[type=range]::-webkit-slider-thumb {
           appearance: none;
           border: none;
-          height: 12px;
-          width: 8px;
-          border-radius: 2px;
+          height: 24px;
+          width: 20px;
+          border-radius: 4px;
           background: ${trackColor};
-          margin-top: -5px;
+          margin-top: -10px;
         }
         input[type=range]:focus {
           outline: none;
