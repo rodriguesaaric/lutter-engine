@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Tonal Layering */
+  --surface: #131313;
+  --surface-container-lowest: #0e0e0e;
+  --surface-container-low: #1c1b1b;
+  --surface-container: #201f1f;
+  --surface-container-high: #2a2a2a;
+  --surface-container-highest: #353534;
+  --surface-bright: #393939;
+
+  /* Colors */
+  --primary: #adc7ff;
+  --primary-container: #4a8eff;
+  --on-primary: #002e68;
+  --on-background: #e5e2e1;
+  --on-surface: #e5e2e1;
+  --on-surface-variant: #c1c6d7;
+  --outline: #8b90a0;
+  --outline-variant: #414754;
+
+  /* Fonts */
+  --font-display: 'Inter', sans-serif;
+  --font-label: 'Space Grotesk', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font-display);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+.technical-label {
+  font-family: var(--font-label);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+}
+
+/* Base utility classes for layouts */
+.surface-low {
+  background-color: var(--surface-container-low);
+  border-radius: 0.75rem;
+}
+
+.surface-high {
+  background-color: var(--surface-container-high);
+  border-radius: 0.75rem;
+  transition: background-color 0.2s ease;
+}
+
+.ghost-border {
+  border: 1px solid rgba(65, 71, 84, 0.15); /* outline-variant at 15% */
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background-color: rgba(32, 31, 31, 0.7); /* surface-container with opacity */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Custom Scrollbar for sleekness */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-container-highest);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--surface-bright);
+}
