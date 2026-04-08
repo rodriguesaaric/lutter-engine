@@ -43,4 +43,4 @@ The React application dynamically switches its endpoint API polling when hosted 
 Ensure you define your `VITE_API_URL` environment variable within your specific cloud platform settings (e.g. Vercel) pointing strictly to the live production Python URL endpoints.
 
 ## 📝 Author
-Asus / Rodriguesaaric
+Aaric Rodrigues
